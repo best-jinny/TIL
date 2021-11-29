@@ -23,3 +23,13 @@
 해당 클래스의 의존성 관계가 변경될 때마다 생성자 코드를 계속 수정하는 번거로움 해결
 
 
+21.11.29
+
+git reset HEAD --hard
+git clean -fd
+
+git clean : 작업 중 파일 삭제(unstage 상태의 파일)
+
+git clean -d -n : 삭제될 대상 미리 확인
+
+
