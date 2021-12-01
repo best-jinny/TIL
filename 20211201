@@ -1,0 +1,34 @@
+[이진탐색 구현]
+
+def binary_search(element, some_list):
+
+print(binary_search(2, [2, 3, 5, 7, 11]))
+print(binary_search(0, [2, 3, 5, 7, 11]))
+print(binary_search(5, [2, 3, 5, 7, 11]))
+print(binary_search(3, [2, 3, 5, 7, 11]))
+print(binary_search(11, [2, 3, 5, 7, 11]))
+
+[코드]
+
+def binary_search(element, some_list):
+   
+    length = len(some_list)
+    first = 0
+    last = length-1
+    
+    while first <= last : 
+        
+        mid = (first+last)//2
+        if some_list[mid] == element :
+            return mid
+        elif some_list[mid] < element :
+            first = mid+1
+        else : 
+            last = mid-1
+            
+    return None
+    
+    
+#########
+1. while 조건 - 첫번째 인덱스와 마지막 인덱스가 엇갈리는 순간까지!
+2. 파이썬의 들여쓰기 문법
