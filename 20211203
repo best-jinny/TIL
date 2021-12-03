@@ -1,0 +1,56 @@
+재귀 (Recursion)
+
+[문제1]
+n번째 삼각수(triangle number)는 자연수 11부터 nn까지의 합입니다. 
+파라미터로 정수값 n을 받고 n번째 삼각수를 리턴해주는 재귀 함수 triangle_number를 쓰세요. 
+n은 11 이상의 자연수라고 가정합시다.
+
+# 1부터 n까지의 합을 리턴
+def triangle_number(n):
+    # 코드를 입력하세요
+
+# 테스트: triangle_number(1)부터 triangle_number(10)까지 출력
+for i in range(1, 11):
+    print(triangle_number(i))
+    
+    
+[코드]
+
+def triangle_number(n):
+    if n == 1 : 
+        return 1
+    return triangle_number(n-1)+n
+    
+    
+    
+    
+[문제2]
+파라미터로 정수값 n을 받고 n의 각 자릿수의 합을 리턴해주는 재귀함수 sum_digits를 쓰세요. 반복문을 쓰지 말고, 재귀(recursion)의 개념을 활용해주세요!
+
+# n의 각 자릿수의 합을 리턴
+def sum_digits(n):
+    # 코드를 작성하세요.
+
+# 테스트
+print(sum_digits(22541))
+print(sum_digits(92130))
+print(sum_digits(12634))
+print(sum_digits(704))
+print(sum_digits(3755))
+
+
+[해결1]
+# n의 각 자릿수의 합을 리턴
+def sum_digits(n):
+    
+    if n%10 == n :
+        return n
+    return n%10+sum_digits(n//10)
+
+[해결2]
+# n의 각 자릿수의 합을 리턴
+def sum_digits(n):
+    
+    if n < 10 :
+        return n
+    return n%10+sum_digits(n//10)
