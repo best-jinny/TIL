@@ -11,3 +11,31 @@ def flip(some_list):
 some_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 some_list = flip(some_list)
 print(some_list)
+
+
+[풀이]
+def flip(some_list):
+    if len(some_list) == 0 or len(some_list) == 1 :
+        return some_list
+    return some_list[-1:] + flip(some_list[:-1])
+    
+
+###
+base case = list 길이가 0이거나 1이면 some_list 를 그대로 리턴하면 됨
+recursive case = 문제를 쪼개기
+예를 들어 
+[1,2,3,4,5] 를 뒤집어야 한다고 생각하면,
+
+[5] + flip([1,2,3,4]) 로 생각할 수 있음 
+
+여기서 알아야 할 것
+
+**리스트 슬라이싱
+
+some_list = [1,2,3,4,5]
+
+some_list[-1] = 5
+some_list[-1:] = [5]
+some_list[:-1] = [1,2,3,4]
+
+
