@@ -1,0 +1,14 @@
+톰캣 설치 경로로 이동
+
+$ cd /??/??/apache-tomcat-7.0.82/conf/Catalina/localhost
+
+해당 위치에서 설정하고자 하는 경로명으로 xml 파일을 생성해준다. 
+경로명과 파일명이 같아야함.
+
+vi storage.xml
+
+vim 에디터에서 
+
+<Context docBase="/home/apps/my_project/storage" path="/storage" reloadable="true" crossContext="true"/>
+
+입력해주고 톰캣 재실행
