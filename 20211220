@@ -1,0 +1,92 @@
+public class IntStack {
+  private int max;
+  private int pointer;
+  private int[] stack;
+  
+  // 실행 시 예외 : 스택이 비어있음
+  public class EmptyIntStackException extends RuntimeException {  
+    public EmptyIntStackException(){}
+  }
+  
+  // 실행 시 예외 : 스택이 가득 참
+  public class OverflowIntStackException extends RuntimeException {
+    public OverflowIntStackException(){}
+  }
+  
+  // 생성자
+  public IntStack(int capacity) {
+    pointer = 0;
+    max = capacity;
+    try {
+      stack = new int[max];
+    } catch (OutOfMemoryError e) {
+      max = 0;
+    }
+  }
+  
+  // 스택에 x를 푸시
+  public int push(int x) throws OverflowIntStackException {
+    if(pointer >= max)
+      throw new OverflowIntStackException();
+    return stack[pointer++] = x;
+  }
+  
+  // 스택에서 데이터 꺼냄
+  public int pop() throws EmptyIntStackException {
+    if(pointer <= 0)
+      throw new EmptyIntStackException();
+    return stack[--pointer];
+  }
+  
+  // 스택에 있는 데이터 확인
+  public int peek() throws EmptyIntStackException {
+    if(pointer <= 0) {
+      throw new EmptyIntStackException();
+    return stack[pointer-1];
+  }
+  
+  // 스택에서 x를 찾아 인덱스를 반환 (없으면 -1)
+  public int indexOf(int x) {
+    for(int i = pointer-1; i>=0; i--) // 정상 쪽에서 선형 검색
+      if (stack[i] == x) 
+        return i;
+      return -1;
+  }
+  
+  // 스택 비우기
+  public void clear() {
+    pointer = 0;
+  }
+
+  // 스택 용량 반환
+  public int capacity() {
+    return max;
+  }
+  
+  // 스택에 쌓여있는 데이터 수 반환
+  public int size() {
+     return pointer;
+  }
+  
+  // 스택이 비어있는가?
+  public boolean isEmpty() {
+      return pointer <= 0;
+  }
+  
+  // 스택이 가득 찼는가?
+  public boolean isFull() {
+      return pointer >= max;
+  } 
+  
+  
+  
+ 
+  
+  
+  
+  
+  
+
+
+}
+
