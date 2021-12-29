@@ -1,0 +1,54 @@
+Divide and Conquer
+
+[문제]
+
+합병 정렬 알고리즘 중 사용되는 merge 함수를 작성
+merge 함수는 정렬된 두 리스트 list1과 list2를 받아서, 하나의 정렬된 리스트를 리턴
+
+[풀이]
+
+def merge(list1, list2):
+    i = 0
+    j = 0
+
+    # 정렬된 항목들을 담을 리스트
+    merged_list = []
+
+    # list1과 list2를 돌면서 merged_list에 항목 정렬
+    while i < len(list1) and j < len(list2):
+        if list1[i] > list2[j]:
+            merged_list.append(list2[j])
+            j += 1
+        else:
+            merged_list.append(list1[i])
+            i += 1
+
+    # list2에 남은 항목이 있으면 정렬 리스트에 추가
+    if i == len(list1):
+        merged_list += list2[j:]
+
+    # list1에 남은 항목이 있으면 정렬 리스트에 추가
+    elif j == len(list2):
+        merged_list += list1[i:]
+
+    return merged_list
+    
+    
+    
+[파이썬 문법]
+ 
+리스트 인덱스 활용
+
+예제)
+
+a = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+>>> a[4:7] -> 4번째 인덱스부터 6번째까지  
+[40, 50, 60]
+>>> a[4:-1] -> 4번째부터 뒤에서 첫번째까지
+[40, 50, 60, 70, 80]
+>>> a[:7] -> 처음부터 6번째까지
+[0, 10, 20, 30, 40, 50, 60]
+>>> a[7:] -> 7번째부터 끝까지
+[70, 80, 90]
+>>> a[:] -> 처음부터 끝까지
+[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
