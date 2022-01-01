@@ -1,0 +1,18 @@
+git reset
+
+1. 과거의 커밋으로 git reset 한다고 그 이후 커밋들이 삭제되는 게 아님. 계속 남아있음
+2. git reset은 과거 커밋 뿐만 아니라 현재 HEAD가 가리키는 커밋 이후의 커밋으로도 할 수 있음
+
+git checkout
+
+HEAD가 커밋을 직접 가리키게 할 수 있을 뿐만 아니라 브랜치를 직접 가리키게 만들 수도 있다.
+
+특정 커밋을 시작점으로 하는 새로운 브랜치를 만들고 싶을 때 
+HEAD를 잠시 Detached HEAD 상태로 두는 경우가 많음
+
+git checkout master
+= master 브랜치로 이동하라
+= HEAD가 master 브랜치를 가리키도록 하라
+= HEAD가 master 브랜치가 가리키던 커밋을 간접적으로 가리키게 되면서
+= working directory 내부도 그 커밋에 맞게 변함으로써
+= master 브랜치로 이동하는 것을 사용자는 실감하게 됨
