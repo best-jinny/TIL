@@ -22,3 +22,6 @@ static void insertionSort(int[] a, int n) {
 
 
 }
+
+
+삽입정렬 시간복잡도 : O(2)
