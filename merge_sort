@@ -1,0 +1,48 @@
+합병정렬 구현
+
+def merge(list1, list2):     
+    
+    i = 0 
+    j = 0 
+    
+    # 정렬된 항목들 담을 리스트
+    merged_list = []
+    
+    # list1과 list2 돌면서 merged_list에 항목 정렬
+    while i < len(list1) and j < len(list2) :
+        if list1[i] > list2[j]:
+            list3.append(list2[j])
+            j += 1
+        else :
+            list3.append(list1[i])
+            i += 1
+    
+    # list2에 남은 항목 있으면 정렬 리스트에 추가
+    if i == len(list1):
+        list3 += list2[j:]
+        
+    # list1에 남은 항목 있으면 정렬 리스트에 추가
+    elif j == len(list2):
+        list3 += list1[i:]
+    return list3
+
+
+# 합병 정렬
+def merge_sort(my_list):
+    
+    # base case : 리스트가 이미 정렬되어있을 때! 리스트 길이가 0이거나 1
+    if len(my_list) < 2 :
+            return my_list
+            
+    # Divide and Conquer 
+    # 1. Divide : 리스트 슬라이싱을 통해 리스트 반으로 나누기
+    # 2. Conquer : 왼쪽 반과 오른쪽 반을 각각 merged_sort 함수로 정렬하기 
+    # 3. Combine : 정렬된 두 리스트를 merge 함수로 합친다 
+    
+    # my_list 반으로 나누기 
+    left_half = my_list[:len(my_list)//2]
+    right_half = my_list[len(my_list)//2:]
+    
+    # merge_sort 함수를 재귀적으로 호출하여 부분 문제 해결 
+    # merge 함수로 정렬된 두 리스트 합치기
+    return merge(merge_sort(left_half), merge_sort(right_half))
