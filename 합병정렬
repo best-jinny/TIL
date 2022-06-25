@@ -1,3 +1,4 @@
+2022.06.24
 합병정렬 구현
 
 def merge(list1, list2):     
