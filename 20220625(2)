@@ -1,4 +1,7 @@
 # 퀵정렬 구현
+Divide: partition 과정을 통해, pivot을 기준으로 리스트를 나눈다.
+Conquer: pivot 왼쪽 부분과 pivot 오른쪽 부분을 각각 quicksort 함수로 정렬한다.
+Combine: 따로 할 게 없다!
 
 # 두 요소의 위치를 바꿔주는 helper function
 def swap_elements(my_list, index1, index2):
