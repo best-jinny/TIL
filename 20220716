@@ -1,0 +1,38 @@
+파이썬 정렬
+
+sort() : 리스트를 정렬된 상태로 변경. 리스트만을 위한 메소드. 
+sorted() : 기존의 리스트 변경 없이 정렬된 새로운 리스트 반환
+
+** key 매개변수
+key 인자에 함수를 넘겨주면 해당 함수의 반환값을 비교하며 순서대롤 정렬
+
+
+alist = [(6, 10), (2, 3), (4, 5), (1, 7), (6, 8), (9, 10)]
+
+# 첫번째 인자를 기준으로 정렬
+sorted_list = sorted(alist, key=lambda x: x[0]) 
+sorted_list = [(1, 7), (2, 3), (4, 5), (6, 10), (6, 8), (9, 10)]
+
+# 두번째 인자를 기준으로 정렬
+sorted_list = sorted(alist, key=lambda x: x[1]) 
+sorted_list = [(2, 3), (4, 5), (1, 7), (6, 8), (6, 10), (9, 10)]
+
+# 두번째인자-첫번째인자 순으로 정렬
+sorted_list = sorted(alist, key=lambda x: x[1] - x[0]) 
+sorted_list = [(2, 3), (4, 5), (9, 10), (6, 8), (6, 10), (1, 7)]
+
+
+*** lambda
+lambda 인자 : 표현식 
+: 뒤에 return할 표현식 지정
+
+sum_numbers = lambda a, b : a + b
+print(sum_numbers(3, 4))
+# 7
+
+f = lambda x:x+10
+print(f(10))
+# 20
+
+(lambda x: x+1) (1)
+# 2
