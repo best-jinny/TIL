@@ -1,0 +1,30 @@
+[나의 풀이]
+
+def solution(array, commands):
+    answer = []
+    
+    for command in commands:
+        i = command[0]
+        j = command[1]
+        k = command[2]
+        first = array[i-1:j]
+        second = sorted(first)
+        answer.append(second[k-1])
+        
+    return answer
+
+
+[다른 사람의 풀이]
+
+def solution(array, commands):
+    answer = []
+    for command in commands:
+        i,j,k = command
+        answer.append(list(sorted(array[i-1:j]))[k-1])
+    return answer
+    
+    
+[배운 점]
+
+1) 변수를 한 번에 넣을 수 있다..!
+2) 더 간결하게 작성할 수 있을지 고민해보기
