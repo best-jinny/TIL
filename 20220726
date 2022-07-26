@@ -1,0 +1,58 @@
+터미널 : 인풋을 받고, 아웃풋을 출력해 주는 프로그램
+shell : 커맨드를 해석해 주는 프로그램
+ shell의 종류 )  bash, zsh(Z shell),, 
+
+pwd : print working directory
+cd : change directory
+
+cd - : 이전 디렉토리로
+
+ls : list
+
+1. a 옵션 (all)
+2. l 옵션 (파일과 디렉토리에 대한 자세한 정보 long format)
+drwxr-xr-x 
+-rw-------
+d : directory
+- : 일반 file
+이하 내용은 권한 관련
+
+ls -al 
+
+mkdir : 디렉토리 생성
+touch : 파일 생성
+cat : 파일 전체 조회(concatenate : 이어붙이다)
+less : 페이지 단위 조회
+head/tail 
+head -n 5 bohemian_rhapsodi.txt : 처음 5줄 출력
+mv path1(작업할 대상의 경로) path2(이동할 목적지 또는 변경할 이름)
+mv는 동일한 파일이 있으면 덮어씌워버림
+안전하게 사용하기 위해서는 i 옵션 추가
+i옵션은 interactive -> 덮어쓸건지 물어봄
+mv -i test1.txt test2.txt
+
+
+여러개 생성 가능
+mkdir Jul Aug Sep
+touch Jul/finance.txt Aug/finance.txt Sep/finance.txt
+
+
+절대 경로 : 루트 디렉토리를 기준으로 어떤 파일이나 디렉토리의 고유한 경로를 표시
+상대 경로 :  현재 자신이 위치해 있는 디렉토리(working directory) 기준으로 경로를 나타내는 것
+현재 디렉토리를 . 으로 표시
+상위 디렉토리를 .. 으로 표시
+
+
+* root 디렉토리 안에는 어떤 것들이 있을까??
+
+/bin (binaries : 컴퓨터가 실행할 수 있는 프로그램) 컴퓨터가 시작하거나 자신을 수리하기 위해 꼭 플요한 커맨드 .. 
+
+/sbin : bin과 비슷한데 관리자 전용 프로그램
+
+/etc : 컴퓨터 설정 파일. 각종 프로그램들의 설정파일, 관리자 권한 설정 파일 등
+ 
+/home or /Users : 사용자들의 홈 디렉토리
+
+/usr : 사용자에게 필요한 파일. /usr/bin 에는 컴퓨터가 필요하기 보다는 사용자가 필요한 커맨드들.. 
+
+/usr/local : 사용자가 직접 설치한 프로그램과 관련된 파일.. 
