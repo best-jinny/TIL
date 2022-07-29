@@ -1,0 +1,41 @@
+leetcode 
+217. Contains Duplicate
+
+[나의 풀이]
+
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        
+        counter = {}
+        for num in nums:
+            if num in counter:
+                counter[num] += 1
+            else:
+                counter[num] = 1
+                
+        count_list = counter.values()    
+                
+        for count in count_list:
+            
+            if count > 1:
+                return True
+                break
+        
+        return False
+        
+        
+ [다른 사람 풀이]
+ 
+ class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(nums) > len(set(nums))
+        
+[배운점]
+ 
+set이 중복을 허용하지 않는 다는 것을 알고 있었는데
+문제에 적용할 생각을 못했다
+이렇게 간단하게 풀 수 있는 것을..
