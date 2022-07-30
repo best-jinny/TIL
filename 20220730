@@ -1,0 +1,28 @@
+프로그래머스
+체육복 문제
+
+일부 테스트 케이스 통과 못하고 90점 맴돌다가..
+효율적인 다른 사람의 풀이를 보게 됐다.
+
+
+def solution(n, lost, reserve):
+    set_reserve = set(reserve) - set(lost)
+    set_lost = set(lost) - set(reserve)
+
+    for i in set_reserve:
+        if i-1 in set_lost:
+            set_lost.remove(i-1)
+        elif i+1 in set_lost:
+            set_lost.remove(i+1)
+        
+    return n-len(set_lost)
+
+
+또 다시 등장한 set
+
+set을 이용해 데이터를 전처리 한 뒤 풀면 깔끔했다
+
+
+[배운 점]
+1. set은 객체끼리 집합 연산 가능 -> 차집합 이용
+2. 중복이 없다 -> set을 떠올리자
