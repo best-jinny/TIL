@@ -1,0 +1,66 @@
+leetcode
+1. Two Sum
+
+
+[다른 사람의 풀이]
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        hashmap = {}
+
+        for index, num in enumerate(nums):
+
+            difference = target-num
+
+            if difference in hashmap:
+                return [index, hashmap[difference]]
+
+            hashmap[num] = index
+
+
+인덱스를 저장하기 위해서 dictionary 구조를 사용
+
+[배운 점]
+
+* enumerate() 함수
+
+파이썬 인덱스와 원소를 동시에 접근하면서 루프 돌리기
+-> enumerate() 내장 함수 이용!
+
+for entry in enumerate(['A', 'B', 'C']):
+	print(entry)
+
+(0, 'A')
+(1, 'B')
+(2, 'C')
+
+enumerate() 함수는 기본적으로 인덱스와 원소로 이루어진 튜플(tuple)을 만들어줌
+인덱스와 원소를 각각 다른 변수에 할당하고 싶다면 인자 풀기(unpacking) 해줘야함
+
+for i, letter in enumerate(['A', 'B', 'C']):
+	print(i, letter)
+
+0 A
+1 B
+2 C
+
+
+시작 인덱스 변경
+
+for i, letter in enumerate(['A', 'B', 'C'], start=1):
+	print(i, letter)
+
+1 A
+2 B
+3 C
+
+
+* brute force 방법말고 다른 방법으로 풀고 싶었는데 실패..
+자료구조를 알고 있으면서도 문제를 풀 때 계속 떠올리지 못 하고 있다.
+더 많은 문제를 풀다보면 좀 떠오르려나?
+
