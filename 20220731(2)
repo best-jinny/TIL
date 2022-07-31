@@ -1,0 +1,24 @@
+leetcode
+121. Best Time to Buy and Sell Stock
+
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        
+        answer = 0
+        minPrice = 99999999
+
+        for current_price in prices:
+           
+            if current_price < minPrice :
+                minPrice = current_price
+            else:
+                profit = current_price - minPrice
+                if profit > answer :
+                    answer = profit
+        
+        return answer
+        
