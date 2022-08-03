@@ -1,0 +1,41 @@
+leetcode
+387. First Unique Character in a String
+
+[나의 풀이]
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """        
+        for c in s:
+            if s.count(c) == 1:
+                return s.index(c)
+                break
+        return -1
+
+간신히 통과.. 시간 초과될 수도 있었다
+다른 사람이 푼 것을 참고해보니
+dictionary를 활용하면 속도가 좀 더 빠르다
+
+
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        
+        dict = {}
+        for letter in s:
+            if letter not in dict:
+                dict[letter] = 1
+            else:
+                dict[letter] += 1
+
+        for index in range(len(s)):
+            if dict[s[index]] == 1:
+                return index
+
+        return -1
+
