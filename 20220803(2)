@@ -1,0 +1,52 @@
+leetcode
+383. Ransom Note
+
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        note_dict = {}
+        maga_dict = {}
+
+        for letter in magazine:
+            if letter not in maga_dict:
+                maga_dict[letter] = 1
+            else:
+                maga_dict[letter] += 1
+
+        for letter in ransomNote:
+            if letter not in note_dict:
+                note_dict[letter] = 1
+            else:
+                note_dict[letter] += 1
+
+        for letter in ransomNote:
+            if letter in maga_dict:
+                if note_dict[letter] > maga_dict[letter]:
+                    return False
+            else:
+                return False
+        return True
+        
+방금 푼 387번의 dictionary 를 활용해서 풀었는데 코드가 난잡하다.. 
+Counter 를 이용해서 한 줄로 풀 수 있는 방법이 있었다
+
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        return Counter(ransomNote)-Counter(magazine)=={}
+
+
+Counter에 리스트를 넘기면 각 요소를 key로 하여 개수를 반환한다.
+Counter 끼리의 연산도 가능한데, 
+뺄 때 ransomNote에 없는 값은 연산에서 제외되기 때문에 이런 풀이가 가능했다.
+
+
+  
