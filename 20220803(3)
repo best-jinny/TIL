@@ -1,0 +1,16 @@
+leetcode
+242. Valid Anagram
+
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        
+        return Counter(s) == Counter(t)
+        
+        
+방금 알게 된 Counter를 통해서 쉽게 풀 수 있었다!
+Counter를 사용하지 못한다면 정렬이나 딕셔너리를 이용해서 풀 수도 있겠다
