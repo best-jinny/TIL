@@ -1,0 +1,61 @@
+programmers
+lv1. 예산
+
+[첫번째 풀이]
+
+def solution(d, budget):
+    answer = 0
+    
+    department = sorted(d)
+    
+    for i, b in enumerate(department) :
+        if len(department) == 1:
+            if budget < b :
+                return 0
+            else:
+                return 1
+        else :            
+            if budget < b :
+                return i
+            elif budget == b:
+                return i+1
+            budget -= b
+    
+    return len(department)
+        
+예산이 적은 부서부터 정렬해서
+총 예산에서 할당된 금액을 빼내가면서 지원 가능한 부서 개수 찾기 
+
+라는 생각의 흐름대로 시작을 했는데
+1) 부서가 하나일 때의 경우
+2) 필요 예산 총 합이 총 예산보다 작은 경우의 수
+
+등 경우의 수를 빼먹어 틀리면서 계속 조건을 추가해나가다보니 이건 아니다 싶었다
+
+미리 생각을 정리하고 다시 푸니까 훨씬 깔끔해졌다
+
+
+[두번째 풀이]
+
+def solution(d, budget):
+    
+    # 모든 부서에 지원해 줄 수 있는 경우는 총 부서 수 리턴
+    if sum(d) == budget or sum(d) < budget :
+        return len(d)
+    
+    # 우선 순위를 정해야 한다면
+    else:
+        # 신청 금액이 적은 부서부터
+        department = sorted(d)
+        # 지원 가능한 부서 수 카운트
+        answer = 0
+        
+        for b in department :
+
+            if budget < b :
+                return answer
+            
+            budget -= b
+            answer += 1
+
+        return answer
