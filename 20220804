@@ -40,22 +40,21 @@ def solution(d, budget):
 def solution(d, budget):
     
     # 모든 부서에 지원해 줄 수 있는 경우는 총 부서 수 리턴
-    if sum(d) == budget or sum(d) < budget :
+    if sum(d) <= budget :
         return len(d)
     
-    # 우선 순위를 정해야 한다면
-    else:
-        # 신청 금액이 적은 부서부터
-        department = sorted(d)
-        # 지원 가능한 부서 수 카운트
-        answer = 0
-        
-        for b in department :
+    # 우선 순위를 정해야 한다면 신청 금액이 적은 부서부터
+    department = sorted(d)
+    
+    # 지원 가능한 부서 수 카운트
+    answer = 0
 
-            if budget < b :
-                return answer
-            
-            budget -= b
-            answer += 1
+    for b in department :
 
-        return answer
+        if budget < b :
+            return answer
+
+        budget -= b
+        answer += 1
+
+    return answer
