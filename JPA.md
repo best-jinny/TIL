@@ -1,8 +1,8 @@
 *** 영속성 컨텍스트
 
-₩₩₩java
+```java
 EntityManager.persist(entity);
-₩₩₩
+```
 
 - 엔티티 조회 : 1차 캐시
 1차 캐시 -> DB에서 조회
